@@ -1,0 +1,150 @@
+@import "tailwindcss";
+@import "tw-animate-css";
+@import "@fontsource-variable/plus-jakarta-sans";
+@import "@fontsource/ibm-plex-mono";
+@import "@fontsource/ibm-plex-mono/500.css";
+@import "@fontsource/ibm-plex-mono/600.css";
+
+@custom-variant dark (&:is(.dark *));
+
+@theme inline {
+    --font-sans: 'Plus Jakarta Sans Variable', ui-sans-serif, system-ui, sans-serif;
+    --font-mono: 'IBM Plex Mono', ui-monospace, SFMono-Regular, monospace;
+    --font-heading: var(--font-sans);
+
+    --color-background: var(--background);
+    --color-foreground: var(--foreground);
+    --color-card: var(--card);
+    --color-card-foreground: var(--card-foreground);
+    --color-popover: var(--popover);
+    --color-popover-foreground: var(--popover-foreground);
+    --color-primary: var(--primary);
+    --color-primary-foreground: var(--primary-foreground);
+    --color-secondary: var(--secondary);
+    --color-secondary-foreground: var(--secondary-foreground);
+    --color-muted: var(--muted);
+    --color-muted-foreground: var(--muted-foreground);
+    --color-accent: var(--accent);
+    --color-accent-foreground: var(--accent-foreground);
+    --color-destructive: var(--destructive);
+    --color-border: var(--border);
+    --color-input: var(--input);
+    --color-ring: var(--ring);
+
+    --radius-sm: calc(var(--radius) * 0.6);
+    --radius-md: calc(var(--radius) * 0.8);
+    --radius-lg: var(--radius);
+    --radius-xl: calc(var(--radius) * 1.4);
+    --radius-2xl: calc(var(--radius) * 1.8);
+    --radius-3xl: calc(var(--radius) * 2.2);
+}
+
+/* Palet "Academic Logistics Blue & Institutional Slate" — terang, kontras AA */
+:root {
+    --background: oklch(0.984 0.003 247.86);      /* slate-50 #F8FAFC */
+    --foreground: oklch(0.208 0.042 265.75);      /* slate-900 #0F172A */
+    --card: oklch(1 0 0);
+    --card-foreground: oklch(0.208 0.042 265.75);
+    --popover: oklch(1 0 0);
+    --popover-foreground: oklch(0.208 0.042 265.75);
+    --primary: oklch(0.379 0.146 265.52);         /* blue-800 #1E40AF */
+    --primary-foreground: oklch(0.984 0.003 247.86);
+    --secondary: oklch(0.968 0.007 247.9);        /* slate-100 #F1F5F9 */
+    --secondary-foreground: oklch(0.372 0.044 257.29);
+    --muted: oklch(0.968 0.007 247.9);
+    --muted-foreground: oklch(0.554 0.046 257.42); /* slate-500 #64748B */
+    --accent: oklch(0.97 0.014 254.6);            /* blue-50 #EFF6FF */
+    --accent-foreground: oklch(0.379 0.146 265.52);
+    --destructive: oklch(0.53 0.193 15.93);       /* rose-700 #BE123C */
+    --border: oklch(0.929 0.013 255.51);          /* slate-200 #E2E8F0 */
+    --input: oklch(0.929 0.013 255.51);
+    --ring: oklch(0.546 0.215 262.88);            /* blue-600 #2563EB */
+    --radius: 0.75rem;
+}
+
+.dark {
+    --background: oklch(0.208 0.042 265.75);
+    --foreground: oklch(0.984 0.003 247.86);
+    --card: oklch(0.279 0.041 260.03);
+    --card-foreground: oklch(0.984 0.003 247.86);
+    --popover: oklch(0.279 0.041 260.03);
+    --popover-foreground: oklch(0.984 0.003 247.86);
+    --primary: oklch(0.623 0.188 259.81);
+    --primary-foreground: oklch(0.984 0.003 247.86);
+    --secondary: oklch(0.372 0.044 257.29);
+    --secondary-foreground: oklch(0.984 0.003 247.86);
+    --muted: oklch(0.372 0.044 257.29);
+    --muted-foreground: oklch(0.712 0.026 261.79);
+    --accent: oklch(0.372 0.044 257.29);
+    --accent-foreground: oklch(0.984 0.003 247.86);
+    --destructive: oklch(0.704 0.191 22.216);
+    --border: oklch(1 0 0 / 12%);
+    --input: oklch(1 0 0 / 16%);
+    --ring: oklch(0.623 0.188 259.81);
+}
+
+@layer base {
+    * {
+        @apply border-border;
+    }
+    html {
+        scroll-behavior: smooth;
+    }
+    body {
+        @apply bg-background text-foreground font-sans antialiased;
+    }
+    h1, h2, h3, h4 {
+        @apply font-heading tracking-tight;
+    }
+}
+
+/* ---------- Animasi mikro (keyframes bespoke) ---------- */
+@keyframes naik {
+    from { opacity: 0; transform: translateY(10px); }
+    to   { opacity: 1; transform: translateY(0); }
+}
+@keyframes pop {
+    from { opacity: 0; transform: scale(0.55); }
+    to   { opacity: 1; transform: scale(1); }
+}
+@keyframes denyut {
+    0%, 100% { opacity: 1; }
+    50%      { opacity: 0.45; }
+}
+@keyframes kilat-biru {
+    from { background-color: oklch(0.97 0.014 254.6); }
+    to   { background-color: transparent; }
+}
+@keyframes maju {
+    from { opacity: 0; transform: translateX(14px); }
+    to   { opacity: 1; transform: translateX(0); }
+}
+
+.anim-rise        { animation: naik 0.5s cubic-bezier(0.22, 1, 0.36, 1) both; }
+.anim-pop         { animation: pop 0.3s cubic-bezier(0.22, 1, 0.36, 1) both; }
+.anim-maju        { animation: maju 0.35s cubic-bezier(0.22, 1, 0.36, 1) both; }
+.anim-denyut      { animation: denyut 1.8s ease-in-out infinite; }
+.anim-kilat       { animation: kilat-biru 1.1s ease-out; border-radius: 0.5rem; }
+
+/* Transisi halaman antar-route */
+.route-enter-active { transition: opacity 0.25s ease, transform 0.25s ease; }
+.route-leave-active { transition: opacity 0.15s ease, transform 0.15s ease; }
+.route-enter-from   { opacity: 0; transform: translateY(8px); }
+.route-leave-to     { opacity: 0; transform: translateY(-4px); }
+
+/* Transisi overlay & dialog */
+.fade-enter-active, .fade-leave-active { transition: opacity 0.2s ease; }
+.fade-enter-from, .fade-leave-to { opacity: 0; }
+.zoom-enter-active { transition: opacity 0.2s ease, transform 0.2s cubic-bezier(0.22, 1, 0.36, 1); }
+.zoom-leave-active { transition: opacity 0.15s ease; }
+.zoom-enter-from { opacity: 0; transform: scale(0.96) translateY(10px); }
+.zoom-leave-to { opacity: 0; transform: scale(0.97); }
+
+/* Pita keyboard hint */
+kbd {
+    @apply rounded border border-slate-300 bg-slate-100 px-1.5 py-0.5 font-mono text-[11px] font-medium text-slate-600;
+}
+
+/* Kolom catatan yang dirender lewat v-html */
+.catatan-html { font-size: 13px; line-height: 1.5; color: oklch(0.446 0.043 257.28); }
+.catatan-html strong { @apply font-semibold text-slate-800; }
