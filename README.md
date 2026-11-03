@@ -10,10 +10,7 @@ Aplikasi web **Vue 3** untuk mengelola stok bahan ajar UPBJJ, membuat dokumen pe
 4. Jalankan npm run dev.
 5. Buka alamat lokal yang muncul di terminal.
 
-```
-
 ## Struktur Proyek
-```
 
 frontend/
 ├── index.html # entry HTML (lang="id")
@@ -43,7 +40,3 @@ frontend/
 ├── StokPage.vue # KPI, filter, tabel, paginasi, modal tambah
 ├── PengirimanPage.vue # form DO + ringkasan langsung + daftar DO
 └── PelacakanPage.vue # cari DO + status + timeline
-
-```
-
-```
