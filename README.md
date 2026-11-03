@@ -11,7 +11,7 @@ Aplikasi web **Vue 3** untuk mengelola stok bahan ajar UPBJJ, membuat dokumen pe
 5. Buka alamat lokal yang muncul di terminal.
 
 ## Struktur Proyek
-
+```
 frontend/
 ├── index.html          # entry HTML (lang="id")
 ├── package.json        # vue 3, vue-router 5, tailwind v4, vite 8
@@ -41,3 +41,4 @@ frontend/
         ├── StockPage.vue
         ├── PengirimanPage.vue
         └── PelacakanPage.vue
+```
