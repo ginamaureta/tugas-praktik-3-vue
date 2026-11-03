@@ -13,30 +13,31 @@ Aplikasi web **Vue 3** untuk mengelola stok bahan ajar UPBJJ, membuat dokumen pe
 ## Struktur Proyek
 
 frontend/
-├── index.html # entry HTML (lang="id")
-├── package.json # vue 3, vue-router 5, tailwind v4, vite 8
-├── vite.config.ts # plugin vue + tailwind; alias vue full-build
+├── index.html          # entry HTML (lang="id")
+├── package.json        # vue 3, vue-router 5, tailwind v4, vite 8
+├── vite.config.ts      # plugin vue + tailwind; alias vue full-build
 └── src/
-├── main.js # createApp, $filters, registrasi komponen global
-├── App.vue # shell: header, router-view (transisi), footer
-├── router/index.js # /stok, /pengiriman, /pelacakan (hash history)
-├── data/
-│ └── dataBahanAjar.json # dataset resmi soal
-├── stores/
-│ └── gudang.js # store reaktif bersama + aksi (tambahStok, buatDO, …)
-├── utils/
-│ ├── filters.js # $filters: rupiah, tanggal, kapital, statusStok, …
-│ └── styles.js # kelas Tailwind bersama (form & tombol)
-├── components/
-│ ├── AppHeader.vue # header + navigasi tab
-│ ├── StatCard.vue # kartu KPI → <stat-card> (custom element global)
-│ ├── StatusBadge.vue # badge status → <status-badge> (custom element global)
-│ ├── AppHint.vue # komponen Options API dengan property `template`
-│ ├── AppIcon.vue # ikon SVG inline (tanpa dependensi)
-│ ├── StockTable.vue # tabel stok (v-for, v-text, v-html)
-│ ├── StockFormModal.vue # form tambah stok + validasi + watcher
-│ └── TrackingTimeline.vue # timeline perjalanan DO
-└── pages/
-├── StokPage.vue # KPI, filter, tabel, paginasi, modal tambah
-├── PengirimanPage.vue # form DO + ringkasan langsung + daftar DO
-└── PelacakanPage.vue # cari DO + status + timeline
+    ├── main.js         # createApp, $filters, registrasi komponen global
+    ├── App.vue         # shell: header, router-view (transisi), footer
+    ├── router/
+    │   └── index.js    # /stok, /pengiriman, /pelacakan (hash history)
+    ├── data/
+    │   └── dataBahanAjar.json  # dataset resmi soal
+    ├── stores/
+    │   └── gudang.js   # store reaktif bersama + aksi (tambahStok, buatDO, ...)
+    ├── utils/
+    │   ├── filters.js  # $filters: rupiah, tanggal, kapital, statusStok, ...
+    │   └── styles.js   # kelas Tailwind bersama (form & tombol)
+    ├── components/
+    │   ├── AppHeader.vue
+    │   ├── StatCard.vue
+    │   ├── StatusBadge.vue
+    │   ├── AppHint.vue
+    │   ├── AppIcon.vue
+    │   ├── StockTable.vue
+    │   ├── StockFormModal.vue
+    │   └── TrackingTimeline.vue
+    └── pages/
+        ├── StockPage.vue
+        ├── PengirimanPage.vue
+        └── PelacakanPage.vue
